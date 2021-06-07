@@ -50,17 +50,16 @@ export default () => {
     })
   }
   function searchPokemonValidate(name){
-    api.get(`/pokemon/${name}`).then((response)=>{
-     
+    console.log(typeof(name))
+    if(typeof(name) != undefined || typeof(name) != null){
+      api.get(`/pokemon/${name}`).then((response)=>{
       if(response.data){
-            console.log("achou")
-          
+            console.log("achou")      
            setPokedata(response.data)
            handleOpen();
       }
-      
-    
     })
+    } 
   }
 
   return (
